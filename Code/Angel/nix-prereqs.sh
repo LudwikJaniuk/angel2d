@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This script will attempt to install any necessary prerequsites on Unix
-#  systems. At the moment it only supports Fedora, Ubuntu, and Mac OS X. 
+#  systems. At the moment it only supports Fedora, Ubuntu (also Linux Mint), and Mac OS X. 
 # 
 # On all systems, it needs to be run with sudo or root privileges. 
 
@@ -14,7 +14,7 @@ if   [ -f /etc/fedora-release ] ; then
 	DIST='Fedora'
 elif [ -f /etc/lsb-release ] ; then
 	DINFO=`cat /etc/lsb-release | grep DISTRIB_ID | sed s/.*=//`
-	if [ $DINFO == 'Ubuntu' ] ; then
+	if [ $DINFO == 'Ubuntu' ] || [ $DINFO == 'LinuxMint' ] ; then
 		DIST='Ubuntu'
 	fi
 elif [ -f /etc/debian_version ] ; then
